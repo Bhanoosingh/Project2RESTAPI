@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.niit</groupId>
+	<artifactId>FriendsAddaMiddleware</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>FriendsAddaMiddleware Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<spring.version>4.3.5.RELEASE</spring.version>
+		<javaX.version>8.0</javaX.version>
+		<fasterJacksion.version>2.7.5</fasterJacksion.version>
+		<backend.version>0.0.1-SNAPSHOT</backend.version>
+		<java.version>1.8</java.version>
+		<websocket.version>1.1</websocket.version>
+		<shockjs.version>0.3.16</shockjs.version>
+		<Stomp.version>2.3.4</Stomp.version>
+		<commonFileupload.version>1.2.1</commonFileupload.version>
+		<commonio.version>1.3</commonio.version>
+		<angularjs.version>1.3.8</angularjs.version>
+	</properties>
+
+	<dependencies>
+		<!-- JAVA EE Depedency -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaX.version}</version>
+		</dependency>
+
+		<!-- Spring Depedency -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring WebSocket -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring messaging -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Web Socket API -->
+		<dependency>
+			<groupId>javax.websocket</groupId>
+			<artifactId>javax.websocket-api</artifactId>
+			<version>${websocket.version}</version>
+		</dependency>
+
+		<!-- SockJS -->
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>sockjs</artifactId>
+			<version>${shockjs.version}</version>
+		</dependency>
+
+		<!-- Stomp socket -->
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>stomp-websocket</artifactId>
+			<version>${Stomp.version}</version>
+		</dependency>
+
+		<!-- AngularJS -->
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>angular</artifactId>
+			<version>${angularjs.version}</version>
+		</dependency>
+
+		<!-- Faster Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${fasterJacksion.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${fasterJacksion.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${fasterJacksion.version}</version>
+		</dependency>
+
+		<!-- Common Fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commonFileupload.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commonio.version}</version>
+		</dependency>
+
+		<!-- Backend -->
+		<dependency>
+			<groupId>com.niit</groupId>
+			<artifactId>FriendsAdda</artifactId>
+			<version>${backend.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>FriendsAddaMiddleware</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
