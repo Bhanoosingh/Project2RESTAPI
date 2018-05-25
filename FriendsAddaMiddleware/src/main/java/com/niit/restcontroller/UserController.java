@@ -59,13 +59,13 @@ public class UserController {
 	@PostMapping(value = "/update/{email}")
 	public ResponseEntity<String> updateUser(@PathVariable("email") String email, @RequestBody UserDetail userDetail) {
 		System.out.println("In updating user " + email);
-		UserDetail mUser = userDAO.getUser(email);
+		UserDetail mUser = userDAO.getUser(email+".com");
 		if (mUser == null) {
 			System.out.println("No user found with loginname " + email);
 			return new ResponseEntity<String>("No user found", HttpStatus.NOT_FOUND);
 		}
 
-		mUser.setEmail(userDetail.getEmail());
+		mUser.setEmail(userDetail.getEmail()+".com");
 		mUser.setPhone(userDetail.getPhone());
 		mUser.setAddress(userDetail.getAddress());
 		mUser.setName(userDetail.getName());

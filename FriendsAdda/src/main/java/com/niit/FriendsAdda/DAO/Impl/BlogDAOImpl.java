@@ -1,6 +1,5 @@
 package com.niit.FriendsAdda.DAO.Impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -91,16 +90,17 @@ public class BlogDAOImpl implements BlogDAO{
 		}
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	
+	@SuppressWarnings("unchecked")
 	public List<Blog> listBlog(String userName){
 		
 		try {
 			Session session = sessionFactory.openSession();
 			session.beginTransaction();
-			List<Blog> blogList = new ArrayList<Blog>();
-			Query query = session.createQuery("FROM Blog where username=:username").setString("username",userName);
-			blogList = query.list();
-			return blogList;
+			
+			
+			
+			return session.createQuery("FROM Blog where username=:username").setParameter("username", userName).list();
 		} catch (Exception e) {
 			return null;
 		}

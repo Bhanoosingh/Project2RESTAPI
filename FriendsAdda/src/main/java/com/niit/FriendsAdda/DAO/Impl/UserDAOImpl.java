@@ -37,6 +37,7 @@ public class UserDAOImpl implements UserDAO {
 	public boolean updateUser(UserDetail user) {
 		
 		try {
+			System.out.println(user.getEmail());
 			sessionFactory.getCurrentSession().update(user);
 			return true;
 		}catch(Exception exception) {

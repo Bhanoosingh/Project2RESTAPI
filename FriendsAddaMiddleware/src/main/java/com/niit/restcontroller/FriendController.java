@@ -88,7 +88,7 @@ public class FriendController {
 	@GetMapping(value="/showSuggestedFriends")
 	public ResponseEntity<List<UserDetail>> showSuggestedFriends(HttpSession session)
 	{
-		String loginname=((UserDetail)session.getAttribute(("userrecord"))).getEmail();
+		String loginname=((UserDetail)session.getAttribute(("userRecord"))).getEmail();
 		List<UserDetail> listSuggestedFriend = friendDAO.showSuggestedFriend(loginname);
 		if(listSuggestedFriend.size()>0)
 		{

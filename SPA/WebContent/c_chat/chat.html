@@ -13,8 +13,10 @@ body {
 	background:url('assets/images/profile.jpg');
 }
 #chat-box {
+	margin-top:-134px;
+	margin-right:350px;
 	position: relative;
-	margin: 0% auto;
+	
 	width: 600px;
 	height: 520px;
 	border-radius: 2px;
@@ -50,7 +52,7 @@ body {
 
 		<div class="jumbotron" style="background:rgba(255,255,255,0.0);">
 			<p ng-repeat="msg in messages" color="lightblue">
-				<span> <img	src="http://localhost:8085/CodeWarriaorsMiddleware/getImage/{{currentUser.email}}"
+				<span> <img	src="http://localhost:8081/FriendsAddaMiddleware/getImage/{{currentUser.email}}"
 					width="20" height="20" onerror=this.src= "assets/images/user.png"/> <font style="text-shadow: 1px 1px 1px #000; color:slategrey;"
 					 face="Verdana"> {{msg.message}} </font>
 				</span>

@@ -1,5 +1,9 @@
 package com.niit.restcontroller;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.niit.FriendsAdda.DAO.ProfilePicDAO;
 import com.niit.FriendsAdda.model.ProfilePicture;
 import com.niit.FriendsAdda.model.UserDetail;
+import com.niit.util.FileUtil;
 
 @RestController
 public class UploadPicController {
@@ -23,9 +29,8 @@ public class UploadPicController {
 	@Autowired
 	ProfilePicDAO profileDAO;
 	
-	@SuppressWarnings("unused")
 	@RequestMapping(value="/doUpload",method=RequestMethod.POST)
-	public String uploadPicture(@RequestParam(value="file")CommonsMultipartFile fileupload,HttpSession session)
+	public ResponseEntity<?> uploadPicture(@RequestParam(value="file")CommonsMultipartFile fileupload,HttpSession session)
 	{
 
 		UserDetail userDetail=(UserDetail)session.getAttribute("userRecord");
@@ -33,7 +38,7 @@ public class UploadPicController {
 		
 		if(userDetail==null) 
 		{
-			return "";/*new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);*/
+			return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
 		}
 		else
 		{
@@ -43,8 +48,7 @@ public class UploadPicController {
 			profilePicture.setImage(fileupload.getBytes());
 			profileDAO.save(profilePicture);
 			System.out.println("Successfully uploaded..!!");
-			new ResponseEntity<Void>(HttpStatus.OK);
-			return "redirect:/http://localhost:8081/SPA/#!/uploadProfilePicture";
+			return new ResponseEntity<Void>(HttpStatus.OK);
 		}
 	}
 	

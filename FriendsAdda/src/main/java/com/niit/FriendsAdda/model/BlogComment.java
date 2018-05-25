@@ -9,11 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="blogcomment_idseq", sequenceName="blogcommentid")
+@SequenceGenerator(name="blogcomment_id_seq", sequenceName="blogcomment_id")
 public class BlogComment {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="blogcomment_idseq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="blogcomment_id_seq")
 	int commentId;
 	
 	String commentText;

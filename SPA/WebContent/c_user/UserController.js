@@ -1,6 +1,3 @@
-/**
- * 
- */
 myApp.controller("UserController",function($scope,$http,$location,$rootScope,$cookieStore){
 	
 	$scope.user={"name":'',"password":'',"email":'',"address":'',"phone":'',"role":'',"isOnline":''};
@@ -45,7 +42,7 @@ myApp.controller("UserController",function($scope,$http,$location,$rootScope,$co
 		$scope.update = function(email) {
 			console.log('Entered into the Update  User method '+email);
 			$http.post("http://localhost:8081/FriendsAddaMiddleware/update/"+email,
-					$scope.user).then(function(response) {
+					$scope.currentUser).then(function(response) {
 				console.log('Status text:' + response.statusText);
 				alert('updated details successfully..!!');
 				$location.path("/viewProfile");
